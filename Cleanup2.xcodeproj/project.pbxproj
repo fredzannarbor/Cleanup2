@@ -45,6 +45,13 @@
 		CS00010024 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = CS00020024 /* Assets.xcassets */; };
 		CS00010025 /* GRDB in Frameworks */ = {isa = PBXBuildFile; productRef = CS00050001 /* GRDB */; };
 		CS00010026 /* ShareStatusReportView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CS00020027 /* ShareStatusReportView.swift */; };
+		CS00010030 /* SubscriptionService.swift in Sources */ = {isa = PBXBuildFile; fileRef = CS00020030 /* SubscriptionService.swift */; };
+		CS00010031 /* SnapshotManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = CS00020031 /* SnapshotManager.swift */; };
+		CS00010032 /* PaywallView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CS00020032 /* PaywallView.swift */; };
+		CS00010033 /* SnapshotHistoryView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CS00020033 /* SnapshotHistoryView.swift */; };
+		CS00010034 /* RecommendationsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CS00020034 /* RecommendationsView.swift */; };
+		CS00010035 /* ScienceView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CS00020035 /* ScienceView.swift */; };
+		CS00010036 /* NimbleScience in Frameworks */ = {isa = PBXBuildFile; productRef = CS00050010 /* NimbleScience */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -88,6 +95,12 @@
 		CS00020025 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		CS00020026 /* Cleanup2.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = Cleanup2.entitlements; sourceTree = "<group>"; };
 		CS00020027 /* ShareStatusReportView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShareStatusReportView.swift; sourceTree = "<group>"; };
+		CS00020030 /* SubscriptionService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SubscriptionService.swift; sourceTree = "<group>"; };
+		CS00020031 /* SnapshotManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SnapshotManager.swift; sourceTree = "<group>"; };
+		CS00020032 /* PaywallView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PaywallView.swift; sourceTree = "<group>"; };
+		CS00020033 /* SnapshotHistoryView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SnapshotHistoryView.swift; sourceTree = "<group>"; };
+		CS00020034 /* RecommendationsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecommendationsView.swift; sourceTree = "<group>"; };
+		CS00020035 /* ScienceView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScienceView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -96,6 +109,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				CS00010025 /* GRDB in Frameworks */,
+				CS00010036 /* NimbleScience in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -155,6 +169,7 @@
 				CS0002000A /* PhotoStorageService.swift */,
 				CS0002000B /* VideoScanService.swift */,
 				CS0002000C /* SpeechService.swift */,
+				CS00020030 /* SubscriptionService.swift */,
 			);
 			path = Services;
 			sourceTree = "<group>";
@@ -166,6 +181,7 @@
 				CS0002000E /* DeclutterManager.swift */,
 				CS0002000F /* CleaningManager.swift */,
 				CS00020010 /* ProgressManager.swift */,
+				CS00020031 /* SnapshotManager.swift */,
 			);
 			path = Managers;
 			sourceTree = "<group>";
@@ -178,8 +194,18 @@
 				CS00060060 /* Clean */,
 				CS00060070 /* Progress */,
 				CS00060080 /* Shared */,
+				CS000600A0 /* Premium */,
 			);
 			path = Views;
+			sourceTree = "<group>";
+		};
+		CS000600A0 /* Premium */ = {
+			isa = PBXGroup;
+			children = (
+				CS00020034 /* RecommendationsView.swift */,
+				CS00020035 /* ScienceView.swift */,
+			);
+			path = Premium;
 			sourceTree = "<group>";
 		};
 		CS00060050 /* Declutter */ = {
@@ -213,6 +239,7 @@
 				CS0002001D /* DeclutterProgressChart.swift */,
 				CS0002001E /* StreakCalendarView.swift */,
 				CS0002001F /* StatsCardView.swift */,
+				CS00020033 /* SnapshotHistoryView.swift */,
 			);
 			path = Progress;
 			sourceTree = "<group>";
@@ -224,6 +251,7 @@
 				CS00020021 /* CategoryBadgeView.swift */,
 				CS00020022 /* EmptyStateView.swift */,
 				CS00020027 /* ShareStatusReportView.swift */,
+				CS00020032 /* PaywallView.swift */,
 			);
 			path = Shared;
 			sourceTree = "<group>";
@@ -254,6 +282,7 @@
 			name = Cleanup2;
 			packageProductDependencies = (
 				CS00050001 /* GRDB */,
+				CS00050010 /* NimbleScience */,
 			);
 			productName = Cleanup2;
 			productReference = CS00030001 /* Cleanup2.app */;
@@ -285,6 +314,7 @@
 			mainGroup = CS00060001;
 			packageReferences = (
 				CS00050002 /* XCRemoteSwiftPackageReference "GRDB.swift" */,
+				CS00050011 /* XCLocalSwiftPackageReference "NimbleKit" */,
 			);
 			productRefGroup = CS00060003 /* Products */;
 			projectDirPath = "";
@@ -347,6 +377,12 @@
 				CS00010022 /* EmptyStateView.swift in Sources */,
 				CS00010023 /* PreviewData.swift in Sources */,
 				CS00010026 /* ShareStatusReportView.swift in Sources */,
+				CS00010030 /* SubscriptionService.swift in Sources */,
+				CS00010031 /* SnapshotManager.swift in Sources */,
+				CS00010032 /* PaywallView.swift in Sources */,
+				CS00010033 /* SnapshotHistoryView.swift in Sources */,
+				CS00010034 /* RecommendationsView.swift in Sources */,
+				CS00010035 /* ScienceView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -572,11 +608,22 @@
 		};
 /* End XCRemoteSwiftPackageReference section */
 
+/* Begin XCLocalSwiftPackageReference section */
+		CS00050011 /* XCLocalSwiftPackageReference "NimbleKit" */ = {
+			isa = XCLocalSwiftPackageReference;
+			relativePath = ../NimbleKit;
+		};
+/* End XCLocalSwiftPackageReference section */
+
 /* Begin XCSwiftPackageProductDependency section */
 		CS00050001 /* GRDB */ = {
 			isa = XCSwiftPackageProductDependency;
 			package = CS00050002 /* XCRemoteSwiftPackageReference "GRDB.swift" */;
 			productName = GRDB;
+		};
+		CS00050010 /* NimbleScience */ = {
+			isa = XCSwiftPackageProductDependency;
+			productName = NimbleScience;
 		};
 /* End XCSwiftPackageProductDependency section */
 	};

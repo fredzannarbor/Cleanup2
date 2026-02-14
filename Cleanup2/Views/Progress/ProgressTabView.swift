@@ -4,6 +4,13 @@ import Charts
 struct ProgressTabView: View {
     @EnvironmentObject var progressManager: ProgressManager
     @EnvironmentObject var roomManager: RoomManager
+    @EnvironmentObject var subscriptionService: SubscriptionService
+    @EnvironmentObject var snapshotManager: SnapshotManager
+    @State private var showPaywall = false
+
+    private var isPremium: Bool {
+        subscriptionService.effectivelyPremium
+    }
 
     var body: some View {
         NavigationStack {
@@ -62,6 +69,60 @@ struct ProgressTabView: View {
 
                         // Cleaning activity heatmap
                         StreakCalendarView(dailyCounts: progressManager.dailyCounts)
+
+                        // Premium sections
+                        Divider()
+                            .padding(.vertical, 4)
+
+                        // Snapshot History
+                        premiumSection(
+                            title: "Snapshot History",
+                            icon: "clock.arrow.circlepath",
+                            description: "Track your progress over time"
+                        ) {
+                            if snapshotManager.snapshots.isEmpty {
+                                Text("No snapshots yet. Take snapshots from room detail views.")
+                                    .font(.caption)
+                                    .foregroundStyle(.secondary)
+                            } else {
+                                ForEach(snapshotManager.snapshots.prefix(3)) { snapshot in
+                                    if let room = roomManager.rooms.first(where: { $0.id == snapshot.roomId }) {
+                                        NavigationLink {
+                                            SnapshotHistoryView(roomId: snapshot.roomId, roomName: room.name)
+                                        } label: {
+                                            HStack {
+                                                RoomIconView(icon: room.icon, size: 28, color: .indigo)
+                                                VStack(alignment: .leading) {
+                                                    Text(room.name)
+                                                        .font(.subheadline)
+                                                    Text(snapshot.snapshotDate, style: .date)
+                                                        .font(.caption)
+                                                        .foregroundStyle(.secondary)
+                                                }
+                                                Spacer()
+                                                Text("\(snapshot.totalItems) items")
+                                                    .font(.caption)
+                                                    .foregroundStyle(.secondary)
+                                            }
+                                        }
+                                    }
+                                }
+                            }
+                        }
+
+                        // Recommendations
+                        premiumSection(
+                            title: "Recommendations",
+                            icon: "chart.bar.xaxis",
+                            description: "Smart suggestions for where to focus"
+                        ) {
+                            NavigationLink {
+                                RecommendationsView()
+                            } label: {
+                                Label("View Recommendations", systemImage: "arrow.right")
+                                    .font(.subheadline)
+                            }
+                        }
                     }
                     .padding()
                 } else {
@@ -73,8 +134,51 @@ struct ProgressTabView: View {
             .onAppear {
                 progressManager.loadStats()
                 roomManager.loadRooms()
+                snapshotManager.loadAllSnapshots()
+            }
+            .sheet(isPresented: $showPaywall) {
+                PaywallView()
             }
         }
+    }
+
+    @ViewBuilder
+    private func premiumSection<Content: View>(title: String, icon: String, description: String, @ViewBuilder content: () -> Content) -> some View {
+        VStack(alignment: .leading, spacing: 8) {
+            HStack {
+                Image(systemName: icon)
+                    .foregroundStyle(.indigo)
+                Text(title)
+                    .font(.headline)
+                Spacer()
+                if !isPremium {
+                    Image(systemName: "lock.fill")
+                        .font(.caption)
+                        .foregroundStyle(.secondary)
+                }
+            }
+
+            if isPremium {
+                content()
+            } else {
+                Button {
+                    showPaywall = true
+                } label: {
+                    HStack {
+                        Text(description)
+                            .font(.caption)
+                            .foregroundStyle(.secondary)
+                        Spacer()
+                        Text("Unlock")
+                            .font(.caption.bold())
+                            .foregroundStyle(.indigo)
+                    }
+                }
+            }
+        }
+        .padding()
+        .background(.regularMaterial)
+        .clipShape(RoundedRectangle(cornerRadius: 16))
     }
 }
 

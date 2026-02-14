@@ -1,0 +1,10 @@
+app_identifier "com.nimblebooks.Cleanup2"
+platform "ios"
+skip_binary_upload true
+force true
+metadata_path "./fastlane/metadata"
+screenshots_path "./fastlane/screenshots"
+submit_for_review false
+copyright "2026 Nimble Books LLC"
+primary_category "UTILITIES"
+secondary_category "LIFESTYLE"

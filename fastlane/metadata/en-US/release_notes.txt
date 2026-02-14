@@ -1,0 +1,10 @@
+Initial release with:
+
+- Room-by-room decluttering with Keep, Donate, Trash, and Sell categories
+- Voice input, video scanning, and clipboard import
+- Bulk categorization for fast processing
+- Automatic cleaning schedules when rooms are decluttered
+- Progress dashboard with charts, streaks, and activity calendar
+- Premium tier: drag-to-reorder, autogroup, snapshots, recommendations, and science-backed health insights
+- Alphabetical sorting (free) with custom sort order (premium)
+- Share status reports with friends and family

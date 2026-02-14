@@ -1,0 +1,31 @@
+Cleanup² is a native iOS app that transforms the overwhelming task of decluttering your home into a structured, room-by-room process — then keeps your spaces clean with recurring task schedules.
+
+DECLUTTER ROOM BY ROOM
+
+Go through every room in your home and catalog what's there. Categorize each item as Keep, Donate, Trash, or Sell. Mark furniture separately. Use voice input, video scanning, or clipboard import to add items quickly. Bulk categorize to fly through large inventories.
+
+TRANSITION TO CLEANING MODE
+
+Once a room is fully decluttered, Cleanup² automatically generates a customized cleaning schedule based on the room type — daily, weekly, and monthly tasks appropriate for kitchens, bathrooms, bedrooms, and more.
+
+TRACK YOUR PROGRESS
+
+Visual dashboards show your decluttering progress across all rooms with bar charts, category pie charts, cleaning streaks, and activity calendars. See exactly how many items you've processed, donated, sold, and trashed.
+
+PREMIUM FEATURES
+
+Upgrade to unlock powerful tools:
+
+- Drag-to-Reorder: Arrange items in the order that makes sense to you
+- Autogroup: Automatically group similar items together by keyword
+- State Snapshots: Save point-in-time snapshots and track changes over time
+- Smart Recommendations: Get priority-ranked suggestions for which room to tackle next
+- Here Comes the Science: Research-backed insights on how clutter affects your mental health, sleep quality, cortisol levels, and biological risks like mold and allergens — with academic citations
+
+DESIGNED FOR REAL PEOPLE
+
+Whether you're facing a full-house cleanout or just want to get one closet under control, Cleanup² meets you where you are. The free tier gives you everything you need to declutter and maintain a cleaning schedule. Premium adds analytics and insights for those who want to go deeper.
+
+PRIVACY
+
+Cleanup² stores all data locally on your device. No account required. No data uploaded to servers. Photos stay in your app sandbox. Your clutter is your business.

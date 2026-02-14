@@ -12,5 +12,14 @@
 	<string>Cleanup2 uses speech recognition so you can add items hands-free by speaking their names.</string>
 	<key>NSPhotoLibraryUsageDescription</key>
 	<string>Cleanup2 accesses your photo library so you can attach photos to declutter items.</string>
+	<key>CFBundleURLTypes</key>
+	<array>
+		<dict>
+			<key>CFBundleURLSchemes</key>
+			<array>
+				<string>cleanup2</string>
+			</array>
+		</dict>
+	</array>
 </dict>
 </plist>

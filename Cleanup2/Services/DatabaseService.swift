@@ -42,6 +42,8 @@ struct DBDeclutterItem: Codable, FetchableRecord, PersistableRecord {
     var isFurniture: Bool
     var photoPath: String?
     var notes: String?
+    var sortOrder: Int
+    var autoGroup: String?
     var createdAt: Date
 
     static let databaseTableName = "declutter_items"
@@ -54,6 +56,8 @@ struct DBDeclutterItem: Codable, FetchableRecord, PersistableRecord {
         static let isFurniture = Column(CodingKeys.isFurniture)
         static let photoPath = Column(CodingKeys.photoPath)
         static let notes = Column(CodingKeys.notes)
+        static let sortOrder = Column(CodingKeys.sortOrder)
+        static let autoGroup = Column(CodingKeys.autoGroup)
         static let createdAt = Column(CodingKeys.createdAt)
     }
 
@@ -66,9 +70,38 @@ struct DBDeclutterItem: Codable, FetchableRecord, PersistableRecord {
             isFurniture: isFurniture,
             photoPath: photoPath,
             notes: notes,
+            sortOrder: sortOrder,
+            autoGroup: autoGroup,
             createdAt: createdAt
         )
     }
+}
+
+struct DBStateSnapshot: Codable, FetchableRecord, PersistableRecord {
+    var id: Int64?
+    var snapshotDate: Date
+    var roomId: Int64
+    var totalItems: Int
+    var categorizedCount: Int
+    var keepCount: Int
+    var donateCount: Int
+    var trashCount: Int
+    var sellCount: Int
+    var furnitureCount: Int
+    var createdAt: Date
+
+    static let databaseTableName = "state_snapshots"
+}
+
+struct DBItemSnapshot: Codable, FetchableRecord, PersistableRecord {
+    var id: Int64?
+    var snapshotId: Int64
+    var itemId: Int64
+    var name: String
+    var category: String
+    var isFurniture: Bool
+
+    static let databaseTableName = "item_snapshots"
 }
 
 struct DBCleaningTask: Codable, FetchableRecord, PersistableRecord {
@@ -203,6 +236,20 @@ class DatabaseService {
                 }
             }
 
+            // Migration: add sortOrder column if missing
+            if try db.columns(in: "declutter_items").first(where: { $0.name == "sortOrder" }) == nil {
+                try db.alter(table: "declutter_items") { t in
+                    t.add(column: "sortOrder", .integer).notNull().defaults(to: 0)
+                }
+            }
+
+            // Migration: add autoGroup column if missing
+            if try db.columns(in: "declutter_items").first(where: { $0.name == "autoGroup" }) == nil {
+                try db.alter(table: "declutter_items") { t in
+                    t.add(column: "autoGroup", .text)
+                }
+            }
+
             try db.create(table: "cleaning_tasks", ifNotExists: true) { t in
                 t.autoIncrementedPrimaryKey("id")
                 t.column("roomId", .integer).notNull()
@@ -218,6 +265,33 @@ class DatabaseService {
                 t.column("taskId", .integer).notNull()
                     .references("cleaning_tasks", onDelete: .cascade)
                 t.column("completedAt", .datetime).notNull()
+            }
+
+            // State snapshots table
+            try db.create(table: "state_snapshots", ifNotExists: true) { t in
+                t.autoIncrementedPrimaryKey("id")
+                t.column("snapshotDate", .date).notNull()
+                t.column("roomId", .integer).notNull()
+                    .references("rooms", onDelete: .cascade)
+                t.column("totalItems", .integer).notNull()
+                t.column("categorizedCount", .integer).notNull()
+                t.column("keepCount", .integer).notNull()
+                t.column("donateCount", .integer).notNull()
+                t.column("trashCount", .integer).notNull()
+                t.column("sellCount", .integer).notNull()
+                t.column("furnitureCount", .integer).notNull()
+                t.column("createdAt", .datetime).notNull()
+            }
+
+            // Item snapshots table
+            try db.create(table: "item_snapshots", ifNotExists: true) { t in
+                t.autoIncrementedPrimaryKey("id")
+                t.column("snapshotId", .integer).notNull()
+                    .references("state_snapshots", onDelete: .cascade)
+                t.column("itemId", .integer).notNull()
+                t.column("name", .text).notNull()
+                t.column("category", .text).notNull()
+                t.column("isFurniture", .boolean).notNull().defaults(to: false)
             }
 
             // Indexes
@@ -243,6 +317,18 @@ class DatabaseService {
                 index: "idx_cleaning_logs_completedAt",
                 on: "cleaning_logs",
                 columns: ["completedAt"],
+                ifNotExists: true
+            )
+            try db.create(
+                index: "idx_state_snapshots_roomId",
+                on: "state_snapshots",
+                columns: ["roomId"],
+                ifNotExists: true
+            )
+            try db.create(
+                index: "idx_item_snapshots_snapshotId",
+                on: "item_snapshots",
+                columns: ["snapshotId"],
                 ifNotExists: true
             )
         }
@@ -418,6 +504,8 @@ class DatabaseService {
                 isFurniture: isFurniture,
                 photoPath: photoPath,
                 notes: notes,
+                sortOrder: 0,
+                autoGroup: nil,
                 createdAt: Date()
             )
             try dbQueue?.write { db in
@@ -442,6 +530,8 @@ class DatabaseService {
                         isFurniture: false,
                         photoPath: nil,
                         notes: nil,
+                        sortOrder: 0,
+                        autoGroup: nil,
                         createdAt: Date()
                     )
                     try item.insert(db)
@@ -882,6 +972,107 @@ class DatabaseService {
         }
     }
 
+    // MARK: - Sort Order & Autogroup
+
+    func updateItemSortOrder(id: Int64, sortOrder: Int) {
+        do {
+            try dbQueue?.write { db in
+                guard var item = try DBDeclutterItem.fetchOne(db, key: id) else { return }
+                item.sortOrder = sortOrder
+                try item.update(db)
+            }
+        } catch {
+            print("DatabaseService: Failed to update item sort order: \(error)")
+        }
+    }
+
+    func updateItemAutoGroup(id: Int64, autoGroup: String?) {
+        do {
+            try dbQueue?.write { db in
+                guard var item = try DBDeclutterItem.fetchOne(db, key: id) else { return }
+                item.autoGroup = autoGroup
+                try item.update(db)
+            }
+        } catch {
+            print("DatabaseService: Failed to update item autoGroup: \(error)")
+        }
+    }
+
+    // MARK: - State Snapshots
+
+    func insertSnapshot(roomId: Int64, items: [DeclutterItem]) -> Int64? {
+        do {
+            let keepCount = items.filter { $0.category == .keep }.count
+            let donateCount = items.filter { $0.category == .donate }.count
+            let trashCount = items.filter { $0.category == .trash }.count
+            let sellCount = items.filter { $0.category == .sell }.count
+            let categorizedCount = items.filter { $0.category != .uncategorized }.count
+            let furnitureCount = items.filter { $0.isFurniture }.count
+
+            var snapshot = DBStateSnapshot(
+                id: nil,
+                snapshotDate: Date(),
+                roomId: roomId,
+                totalItems: items.count,
+                categorizedCount: categorizedCount,
+                keepCount: keepCount,
+                donateCount: donateCount,
+                trashCount: trashCount,
+                sellCount: sellCount,
+                furnitureCount: furnitureCount,
+                createdAt: Date()
+            )
+            try dbQueue?.write { db in
+                try snapshot.insert(db)
+                guard let snapshotId = snapshot.id else { return }
+                for item in items {
+                    var itemSnap = DBItemSnapshot(
+                        id: nil,
+                        snapshotId: snapshotId,
+                        itemId: Int64(item.id),
+                        name: item.name,
+                        category: item.category.rawValue,
+                        isFurniture: item.isFurniture
+                    )
+                    try itemSnap.insert(db)
+                }
+            }
+            return snapshot.id
+        } catch {
+            print("DatabaseService: Failed to insert snapshot: \(error)")
+            return nil
+        }
+    }
+
+    func fetchSnapshots(forRoom roomId: Int64) -> [DBStateSnapshot] {
+        do {
+            return try dbQueue?.read { db in
+                try DBStateSnapshot
+                    .filter(Column("roomId") == roomId)
+                    .order(Column("snapshotDate").desc)
+                    .fetchAll(db)
+            } ?? []
+        } catch {
+            print("DatabaseService: Failed to fetch snapshots: \(error)")
+            return []
+        }
+    }
+
+    func fetchAllSnapshots() -> [DBStateSnapshot] {
+        do {
+            return try dbQueue?.read { db in
+                try DBStateSnapshot
+                    .order(Column("snapshotDate").desc)
+                    .fetchAll(db)
+            } ?? []
+        } catch {
+            print("DatabaseService: Failed to fetch all snapshots: \(error)")
+            return []
+        }
+    }
+
+    // MARK: - Helpers
+
     private func enrichTask(_ task: CleaningTask) -> CleaningTask {
         var enriched = task
         enriched.lastCompleted = lastCompletion(forTask: task.id)
@@ -904,11 +1095,13 @@ class DatabaseService {
             enriched.isDueToday = true
         }
 
-        // If room info not yet set, look it up
+        // If room info not yet set, look it up directly (avoid fetchRoom to prevent recursion)
         if enriched.roomName.isEmpty {
-            if let room = fetchRoom(id: task.roomId) {
-                enriched.roomName = room.name
-                enriched.roomIcon = room.icon
+            if let dbRoom = try? dbQueue?.read({ db in
+                try DBRoom.fetchOne(db, key: task.roomId)
+            }) {
+                enriched.roomName = dbRoom.name
+                enriched.roomIcon = RoomIcon(rawValue: dbRoom.icon) ?? .kitchen
             }
         }
 
