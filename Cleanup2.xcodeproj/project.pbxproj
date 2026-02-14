@@ -1,0 +1,584 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 56;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		CS00010001 /* Cleanup2App.swift in Sources */ = {isa = PBXBuildFile; fileRef = CS00020001 /* Cleanup2App.swift */; };
+		CS00010002 /* Enums.swift in Sources */ = {isa = PBXBuildFile; fileRef = CS00020002 /* Enums.swift */; };
+		CS00010003 /* Room.swift in Sources */ = {isa = PBXBuildFile; fileRef = CS00020003 /* Room.swift */; };
+		CS00010004 /* DeclutterItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = CS00020004 /* DeclutterItem.swift */; };
+		CS00010005 /* CleaningTask.swift in Sources */ = {isa = PBXBuildFile; fileRef = CS00020005 /* CleaningTask.swift */; };
+		CS00010006 /* CleaningLog.swift in Sources */ = {isa = PBXBuildFile; fileRef = CS00020006 /* CleaningLog.swift */; };
+		CS00010007 /* DeclutterSummary.swift in Sources */ = {isa = PBXBuildFile; fileRef = CS00020007 /* DeclutterSummary.swift */; };
+		CS00010008 /* DatabaseService.swift in Sources */ = {isa = PBXBuildFile; fileRef = CS00020008 /* DatabaseService.swift */; };
+		CS00010009 /* NotificationService.swift in Sources */ = {isa = PBXBuildFile; fileRef = CS00020009 /* NotificationService.swift */; };
+		CS0001000A /* PhotoStorageService.swift in Sources */ = {isa = PBXBuildFile; fileRef = CS0002000A /* PhotoStorageService.swift */; };
+		CS0001000B /* VideoScanService.swift in Sources */ = {isa = PBXBuildFile; fileRef = CS0002000B /* VideoScanService.swift */; };
+		CS0001000C /* SpeechService.swift in Sources */ = {isa = PBXBuildFile; fileRef = CS0002000C /* SpeechService.swift */; };
+		CS0001000D /* RoomManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = CS0002000D /* RoomManager.swift */; };
+		CS0001000E /* DeclutterManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = CS0002000E /* DeclutterManager.swift */; };
+		CS0001000F /* CleaningManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = CS0002000F /* CleaningManager.swift */; };
+		CS00010010 /* ProgressManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = CS00020010 /* ProgressManager.swift */; };
+		CS00010011 /* MainTabView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CS00020011 /* MainTabView.swift */; };
+		CS00010012 /* DeclutterTabView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CS00020012 /* DeclutterTabView.swift */; };
+		CS00010013 /* RoomDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CS00020013 /* RoomDetailView.swift */; };
+		CS00010014 /* AddItemView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CS00020014 /* AddItemView.swift */; };
+		CS00010015 /* BulkCategorizeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CS00020015 /* BulkCategorizeView.swift */; };
+		CS00010016 /* DeclutterSummaryView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CS00020016 /* DeclutterSummaryView.swift */; };
+		CS00010017 /* RoomScanView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CS00020017 /* RoomScanView.swift */; };
+		CS00010018 /* CleanTabView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CS00020018 /* CleanTabView.swift */; };
+		CS00010019 /* AddTaskView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CS00020019 /* AddTaskView.swift */; };
+		CS0001001A /* TaskDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CS0002001A /* TaskDetailView.swift */; };
+		CS0001001B /* StreakBadgeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CS0002001B /* StreakBadgeView.swift */; };
+		CS0001001C /* ProgressTabView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CS0002001C /* ProgressTabView.swift */; };
+		CS0001001D /* DeclutterProgressChart.swift in Sources */ = {isa = PBXBuildFile; fileRef = CS0002001D /* DeclutterProgressChart.swift */; };
+		CS0001001E /* StreakCalendarView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CS0002001E /* StreakCalendarView.swift */; };
+		CS0001001F /* StatsCardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CS0002001F /* StatsCardView.swift */; };
+		CS00010020 /* RoomIconView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CS00020020 /* RoomIconView.swift */; };
+		CS00010021 /* CategoryBadgeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CS00020021 /* CategoryBadgeView.swift */; };
+		CS00010022 /* EmptyStateView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CS00020022 /* EmptyStateView.swift */; };
+		CS00010023 /* PreviewData.swift in Sources */ = {isa = PBXBuildFile; fileRef = CS00020023 /* PreviewData.swift */; };
+		CS00010024 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = CS00020024 /* Assets.xcassets */; };
+		CS00010025 /* GRDB in Frameworks */ = {isa = PBXBuildFile; productRef = CS00050001 /* GRDB */; };
+		CS00010026 /* ShareStatusReportView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CS00020027 /* ShareStatusReportView.swift */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXFileReference section */
+		CS00030001 /* Cleanup2.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Cleanup2.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		CS00020001 /* Cleanup2App.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Cleanup2App.swift; sourceTree = "<group>"; };
+		CS00020002 /* Enums.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Enums.swift; sourceTree = "<group>"; };
+		CS00020003 /* Room.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Room.swift; sourceTree = "<group>"; };
+		CS00020004 /* DeclutterItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DeclutterItem.swift; sourceTree = "<group>"; };
+		CS00020005 /* CleaningTask.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CleaningTask.swift; sourceTree = "<group>"; };
+		CS00020006 /* CleaningLog.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CleaningLog.swift; sourceTree = "<group>"; };
+		CS00020007 /* DeclutterSummary.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DeclutterSummary.swift; sourceTree = "<group>"; };
+		CS00020008 /* DatabaseService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DatabaseService.swift; sourceTree = "<group>"; };
+		CS00020009 /* NotificationService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationService.swift; sourceTree = "<group>"; };
+		CS0002000A /* PhotoStorageService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotoStorageService.swift; sourceTree = "<group>"; };
+		CS0002000B /* VideoScanService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VideoScanService.swift; sourceTree = "<group>"; };
+		CS0002000C /* SpeechService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SpeechService.swift; sourceTree = "<group>"; };
+		CS0002000D /* RoomManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RoomManager.swift; sourceTree = "<group>"; };
+		CS0002000E /* DeclutterManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DeclutterManager.swift; sourceTree = "<group>"; };
+		CS0002000F /* CleaningManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CleaningManager.swift; sourceTree = "<group>"; };
+		CS00020010 /* ProgressManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProgressManager.swift; sourceTree = "<group>"; };
+		CS00020011 /* MainTabView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainTabView.swift; sourceTree = "<group>"; };
+		CS00020012 /* DeclutterTabView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DeclutterTabView.swift; sourceTree = "<group>"; };
+		CS00020013 /* RoomDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RoomDetailView.swift; sourceTree = "<group>"; };
+		CS00020014 /* AddItemView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddItemView.swift; sourceTree = "<group>"; };
+		CS00020015 /* BulkCategorizeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BulkCategorizeView.swift; sourceTree = "<group>"; };
+		CS00020016 /* DeclutterSummaryView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DeclutterSummaryView.swift; sourceTree = "<group>"; };
+		CS00020017 /* RoomScanView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RoomScanView.swift; sourceTree = "<group>"; };
+		CS00020018 /* CleanTabView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CleanTabView.swift; sourceTree = "<group>"; };
+		CS00020019 /* AddTaskView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddTaskView.swift; sourceTree = "<group>"; };
+		CS0002001A /* TaskDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TaskDetailView.swift; sourceTree = "<group>"; };
+		CS0002001B /* StreakBadgeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StreakBadgeView.swift; sourceTree = "<group>"; };
+		CS0002001C /* ProgressTabView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProgressTabView.swift; sourceTree = "<group>"; };
+		CS0002001D /* DeclutterProgressChart.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DeclutterProgressChart.swift; sourceTree = "<group>"; };
+		CS0002001E /* StreakCalendarView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StreakCalendarView.swift; sourceTree = "<group>"; };
+		CS0002001F /* StatsCardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StatsCardView.swift; sourceTree = "<group>"; };
+		CS00020020 /* RoomIconView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RoomIconView.swift; sourceTree = "<group>"; };
+		CS00020021 /* CategoryBadgeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoryBadgeView.swift; sourceTree = "<group>"; };
+		CS00020022 /* EmptyStateView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmptyStateView.swift; sourceTree = "<group>"; };
+		CS00020023 /* PreviewData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PreviewData.swift; sourceTree = "<group>"; };
+		CS00020024 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		CS00020025 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		CS00020026 /* Cleanup2.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = Cleanup2.entitlements; sourceTree = "<group>"; };
+		CS00020027 /* ShareStatusReportView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShareStatusReportView.swift; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		CS00040001 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				CS00010025 /* GRDB in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		CS00060001 = {
+			isa = PBXGroup;
+			children = (
+				CS00060002 /* Cleanup2 */,
+				CS00060003 /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		CS00060002 /* Cleanup2 */ = {
+			isa = PBXGroup;
+			children = (
+				CS00020001 /* Cleanup2App.swift */,
+				CS00020025 /* Info.plist */,
+				CS00020026 /* Cleanup2.entitlements */,
+				CS00020024 /* Assets.xcassets */,
+				CS00060010 /* Models */,
+				CS00060020 /* Services */,
+				CS00060030 /* Managers */,
+				CS00060040 /* Views */,
+				CS00060090 /* Preview Content */,
+			);
+			path = Cleanup2;
+			sourceTree = "<group>";
+		};
+		CS00060003 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				CS00030001 /* Cleanup2.app */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		CS00060010 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				CS00020002 /* Enums.swift */,
+				CS00020003 /* Room.swift */,
+				CS00020004 /* DeclutterItem.swift */,
+				CS00020005 /* CleaningTask.swift */,
+				CS00020006 /* CleaningLog.swift */,
+				CS00020007 /* DeclutterSummary.swift */,
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
+		CS00060020 /* Services */ = {
+			isa = PBXGroup;
+			children = (
+				CS00020008 /* DatabaseService.swift */,
+				CS00020009 /* NotificationService.swift */,
+				CS0002000A /* PhotoStorageService.swift */,
+				CS0002000B /* VideoScanService.swift */,
+				CS0002000C /* SpeechService.swift */,
+			);
+			path = Services;
+			sourceTree = "<group>";
+		};
+		CS00060030 /* Managers */ = {
+			isa = PBXGroup;
+			children = (
+				CS0002000D /* RoomManager.swift */,
+				CS0002000E /* DeclutterManager.swift */,
+				CS0002000F /* CleaningManager.swift */,
+				CS00020010 /* ProgressManager.swift */,
+			);
+			path = Managers;
+			sourceTree = "<group>";
+		};
+		CS00060040 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				CS00020011 /* MainTabView.swift */,
+				CS00060050 /* Declutter */,
+				CS00060060 /* Clean */,
+				CS00060070 /* Progress */,
+				CS00060080 /* Shared */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
+		CS00060050 /* Declutter */ = {
+			isa = PBXGroup;
+			children = (
+				CS00020012 /* DeclutterTabView.swift */,
+				CS00020013 /* RoomDetailView.swift */,
+				CS00020014 /* AddItemView.swift */,
+				CS00020015 /* BulkCategorizeView.swift */,
+				CS00020016 /* DeclutterSummaryView.swift */,
+				CS00020017 /* RoomScanView.swift */,
+			);
+			path = Declutter;
+			sourceTree = "<group>";
+		};
+		CS00060060 /* Clean */ = {
+			isa = PBXGroup;
+			children = (
+				CS00020018 /* CleanTabView.swift */,
+				CS00020019 /* AddTaskView.swift */,
+				CS0002001A /* TaskDetailView.swift */,
+				CS0002001B /* StreakBadgeView.swift */,
+			);
+			path = Clean;
+			sourceTree = "<group>";
+		};
+		CS00060070 /* Progress */ = {
+			isa = PBXGroup;
+			children = (
+				CS0002001C /* ProgressTabView.swift */,
+				CS0002001D /* DeclutterProgressChart.swift */,
+				CS0002001E /* StreakCalendarView.swift */,
+				CS0002001F /* StatsCardView.swift */,
+			);
+			path = Progress;
+			sourceTree = "<group>";
+		};
+		CS00060080 /* Shared */ = {
+			isa = PBXGroup;
+			children = (
+				CS00020020 /* RoomIconView.swift */,
+				CS00020021 /* CategoryBadgeView.swift */,
+				CS00020022 /* EmptyStateView.swift */,
+				CS00020027 /* ShareStatusReportView.swift */,
+			);
+			path = Shared;
+			sourceTree = "<group>";
+		};
+		CS00060090 /* Preview Content */ = {
+			isa = PBXGroup;
+			children = (
+				CS00020023 /* PreviewData.swift */,
+			);
+			path = "Preview Content";
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		CS00070001 /* Cleanup2 */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = CS00080003 /* Build configuration list for PBXNativeTarget "Cleanup2" */;
+			buildPhases = (
+				CS00040002 /* Sources */,
+				CS00040001 /* Frameworks */,
+				CS00040003 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = Cleanup2;
+			packageProductDependencies = (
+				CS00050001 /* GRDB */,
+			);
+			productName = Cleanup2;
+			productReference = CS00030001 /* Cleanup2.app */;
+			productType = "com.apple.product-type.application";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		CS00090001 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				BuildIndependentTargetsInParallel = 1;
+				LastSwiftUpdateCheck = 1600;
+				LastUpgradeCheck = 1600;
+				TargetAttributes = {
+					CS00070001 = {
+						CreatedOnToolsVersion = 16.0;
+					};
+				};
+			};
+			buildConfigurationList = CS00080001 /* Build configuration list for PBXProject "Cleanup2" */;
+			compatibilityVersion = "Xcode 14.0";
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = CS00060001;
+			packageReferences = (
+				CS00050002 /* XCRemoteSwiftPackageReference "GRDB.swift" */,
+			);
+			productRefGroup = CS00060003 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				CS00070001 /* Cleanup2 */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		CS00040003 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				CS00010024 /* Assets.xcassets in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		CS00040002 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				CS00010001 /* Cleanup2App.swift in Sources */,
+				CS00010002 /* Enums.swift in Sources */,
+				CS00010003 /* Room.swift in Sources */,
+				CS00010004 /* DeclutterItem.swift in Sources */,
+				CS00010005 /* CleaningTask.swift in Sources */,
+				CS00010006 /* CleaningLog.swift in Sources */,
+				CS00010007 /* DeclutterSummary.swift in Sources */,
+				CS00010008 /* DatabaseService.swift in Sources */,
+				CS00010009 /* NotificationService.swift in Sources */,
+				CS0001000A /* PhotoStorageService.swift in Sources */,
+				CS0001000B /* VideoScanService.swift in Sources */,
+				CS0001000C /* SpeechService.swift in Sources */,
+				CS0001000D /* RoomManager.swift in Sources */,
+				CS0001000E /* DeclutterManager.swift in Sources */,
+				CS0001000F /* CleaningManager.swift in Sources */,
+				CS00010010 /* ProgressManager.swift in Sources */,
+				CS00010011 /* MainTabView.swift in Sources */,
+				CS00010012 /* DeclutterTabView.swift in Sources */,
+				CS00010013 /* RoomDetailView.swift in Sources */,
+				CS00010014 /* AddItemView.swift in Sources */,
+				CS00010015 /* BulkCategorizeView.swift in Sources */,
+				CS00010016 /* DeclutterSummaryView.swift in Sources */,
+				CS00010017 /* RoomScanView.swift in Sources */,
+				CS00010018 /* CleanTabView.swift in Sources */,
+				CS00010019 /* AddTaskView.swift in Sources */,
+				CS0001001A /* TaskDetailView.swift in Sources */,
+				CS0001001B /* StreakBadgeView.swift in Sources */,
+				CS0001001C /* ProgressTabView.swift in Sources */,
+				CS0001001D /* DeclutterProgressChart.swift in Sources */,
+				CS0001001E /* StreakCalendarView.swift in Sources */,
+				CS0001001F /* StatsCardView.swift in Sources */,
+				CS00010020 /* RoomIconView.swift in Sources */,
+				CS00010021 /* CategoryBadgeView.swift in Sources */,
+				CS00010022 /* EmptyStateView.swift in Sources */,
+				CS00010023 /* PreviewData.swift in Sources */,
+				CS00010026 /* ShareStatusReportView.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin XCBuildConfiguration section */
+		CS0008000A /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ASSETCATALOG_COMPILER_GENERATE_SWIFT_ASSET_SYMBOL_EXTENSIONS = YES;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++20";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				ENABLE_USER_SCRIPT_SANDBOXING = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu17;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 17.0;
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				MTL_FAST_MATH = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "DEBUG $(inherited)";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+			};
+			name = Debug;
+		};
+		CS0008000B /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ASSETCATALOG_COMPILER_GENERATE_SWIFT_ASSET_SYMBOL_EXTENSIONS = YES;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++20";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_USER_SCRIPT_SANDBOXING = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu17;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 17.0;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				MTL_FAST_MATH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_COMPILATION_MODE = wholemodule;
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		CS0008000C /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_ENTITLEMENTS = Cleanup2/Cleanup2.entitlements;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_ASSET_PATHS = "\"Cleanup2/Preview Content\"";
+				DEVELOPMENT_TEAM = G33U644FJ6;
+				ENABLE_PREVIEWS = YES;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = Cleanup2/Info.plist;
+				INFOPLIST_KEY_CFBundleDisplayName = "Cleanup²";
+				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
+				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
+				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.nimblebooks.Cleanup2;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
+				SUPPORTS_MACCATALYST = NO;
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = 1;
+			};
+			name = Debug;
+		};
+		CS0008000D /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_ENTITLEMENTS = Cleanup2/Cleanup2.entitlements;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_ASSET_PATHS = "\"Cleanup2/Preview Content\"";
+				DEVELOPMENT_TEAM = G33U644FJ6;
+				ENABLE_PREVIEWS = YES;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = Cleanup2/Info.plist;
+				INFOPLIST_KEY_CFBundleDisplayName = "Cleanup²";
+				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
+				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
+				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.nimblebooks.Cleanup2;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
+				SUPPORTS_MACCATALYST = NO;
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = 1;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		CS00080001 /* Build configuration list for PBXProject "Cleanup2" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				CS0008000A /* Debug */,
+				CS0008000B /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		CS00080003 /* Build configuration list for PBXNativeTarget "Cleanup2" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				CS0008000C /* Debug */,
+				CS0008000D /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		CS00050002 /* XCRemoteSwiftPackageReference "GRDB.swift" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/groue/GRDB.swift";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 7.0.0;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		CS00050001 /* GRDB */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = CS00050002 /* XCRemoteSwiftPackageReference "GRDB.swift" */;
+			productName = GRDB;
+		};
+/* End XCSwiftPackageProductDependency section */
+	};
+	rootObject = CS00090001 /* Project object */;
+}

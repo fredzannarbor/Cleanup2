@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>CFBundleDisplayName</key>
+	<string>Cleanup&#xB2;</string>
+	<key>NSCameraUsageDescription</key>
+	<string>Cleanup2 uses the camera to photograph items for your declutter inventory and to record room walkthrough videos.</string>
+	<key>NSMicrophoneUsageDescription</key>
+	<string>Cleanup2 uses the microphone for voice input when adding items and for recording room walkthrough videos.</string>
+	<key>NSSpeechRecognitionUsageDescription</key>
+	<string>Cleanup2 uses speech recognition so you can add items hands-free by speaking their names.</string>
+	<key>NSPhotoLibraryUsageDescription</key>
+	<string>Cleanup2 accesses your photo library so you can attach photos to declutter items.</string>
+</dict>
+</plist>
