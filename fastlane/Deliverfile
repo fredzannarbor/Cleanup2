@@ -8,3 +8,6 @@ submit_for_review false
 copyright "2026 Nimble Books LLC"
 primary_category "UTILITIES"
 secondary_category "LIFESTYLE"
+
+# App Store Connect API Key
+api_key_path "./fastlane/api_key.json"

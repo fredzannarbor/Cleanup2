@@ -1,0 +1,48 @@
+default_platform(:ios)
+
+platform :ios do
+  desc "Upload metadata and screenshots to App Store Connect"
+  lane :upload_metadata do
+    api_key = app_store_connect_api_key(
+      key_id: "PXR7RG744G",
+      issuer_id: "3c7b3864-3837-499f-8131-e0a761dc2f3a",
+      key_filepath: "./fastlane/AuthKey_PXR7RG744G.p8"
+    )
+
+    deliver(
+      api_key: api_key,
+      app_identifier: "com.nimblebooks.Cleanup2",
+      skip_binary_upload: true,
+      skip_screenshots: true,
+      force: true,
+      metadata_path: "./fastlane/metadata",
+      submit_for_review: false,
+      copyright: "2026 Nimble Books LLC",
+      primary_category: "UTILITIES",
+      secondary_category: "LIFESTYLE",
+      platform: "ios",
+      precheck_include_in_app_purchases: false
+    )
+  end
+
+  desc "Upload screenshots only"
+  lane :upload_screenshots do
+    api_key = app_store_connect_api_key(
+      key_id: "PXR7RG744G",
+      issuer_id: "3c7b3864-3837-499f-8131-e0a761dc2f3a",
+      key_filepath: "./fastlane/AuthKey_PXR7RG744G.p8"
+    )
+
+    deliver(
+      api_key: api_key,
+      app_identifier: "com.nimblebooks.Cleanup2",
+      skip_binary_upload: true,
+      skip_metadata: true,
+      force: true,
+      overwrite_screenshots: true,
+      screenshots_path: "./fastlane/screenshots",
+      platform: "ios",
+      precheck_include_in_app_purchases: false
+    )
+  end
+end
